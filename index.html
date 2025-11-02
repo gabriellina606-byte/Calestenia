@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calistênicos</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Projeto de Extensão - Calistenia + Métrica</h1>
+      <p class="lead">
+        Monitoramento de desempenho em praticantes de calistenia — versão para apresentação acadêmica.
+      </p>
+    </header>
+
+    <nav>
+      <a href="#introducao">Introdução</a>
+      <a href="#objetivos">Objetivos</a>
+      <a href="#metodologia">Metodologia</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#conclusao">Conclusão</a>
+      <a href="#referencias">Referências</a>
+    </nav>
+
+    <section id="introducao" class="card">
+      <h2>1. Introdução</h2>
+      <p>Este projeto propõe o desenvolvimento e implementação de uma ferramenta web simples para registro, cálculo e visualização de métricas de desempenho em calistenia. Busca-se oferecer feedback objetivo aos praticantes, facilitar o monitoramento longitudinal e subsidiar práticas de treinamento mais seguras e efetivas.</p>
+
+      <h3 class="small">Diagnóstico resumido</h3>
+      <p class="small">Praticantes de calistenia frequentemente não dispõem de meios padronizados e acessíveis para acompanhar sua evolução. A falta de registros dificulta a avaliação do progresso e a prescrição baseada em dados.</p>
+    </section>
+
+    <section id="objetivos" class="card">
+      <h2>2. Objetivos</h2>
+      <dl>
+        <dt>Objetivo geral</dt>
+        <dd>Desenvolver um sistema web (HTML/CSS/JavaScript) para registro e apresentação de métricas de desempenho de praticantes de calistenia.</dd>
+
+        <dt>Objetivos específicos</dt>
+        <dd>
+          <ul>
+            <li>Definir e padronizar métricas simples e replicáveis (repetições, tempo isométrico, reps em 1 minuto).</li>
+            <li>Construir uma interface responsiva para registro de treinos e visualização de evolução.</li>
+            <li>Avaliar o impacto da ferramenta em grupo piloto por meio de indicadores quantitativos e qualitativos.</li>
+          </ul>
+        </dd>
+      </dl>
+    </section>
+
+    <section id="metodologia" class="card">
+      <h2>3. Metodologia</h2>
+      <p>O projeto segue metodologia participativa, com coformulação das métricas junto aos praticantes. A implementação será realizada em 12 semanas, com o protótipo web estático (front-end em JavaScript) e coleta de dados via formulários. A análise combina indicadores quantitativos (médias, tendências) e pesquisa qualitativa (satisfação).</p>
+
+      <h3 class="small">Cronograma resumido</h3>
+      <table>
+        <thead>
+          <tr><th>Período</th><th>Atividade</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sem 1–2</td><td>Recrutamento e diagnóstico</td></tr>
+          <tr><td>Sem 3</td><td>Definição de métricas e instrumentos</td></tr>
+          <tr><td>Sem 4–6</td><td>Desenvolvimento de protótipo</td></tr>
+          <tr><td>Sem 7</td><td>Testes-piloto</td></tr>
+          <tr><td>Sem 8–12</td><td>Implementação e coleta</td></tr>
+          <tr><td>Sem 12</td><td>Avaliação final e relatório</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="resultados" class="card">
+      <h2>4. Protótipo — Registro e Visualização</h2>
+      <p class="small">Abaixo há um protótipo funcional em uma única página: formulário de registro, tabela de treinos e gráfico de evolução. Os dados ficam no armazenamento local do navegador (localStorage) — ideal para protótipo sem backend.</p>
+
+      <h3>Registro de Treino</h3>
+      <form id="formTreino">
+        <div class="row">
+          <div>
+            <label for="nome">Nome do participante</label>
+            <input id="nome" name="nome" required>
+          </div>
+          <div>
+            <label for="idade">Idade</label>
+            <input id="idade" name="idade" type="number" min="12" max="100">
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px">
+          <div>
+            <label for="exercicio">Exercício</label>
+            <select id="exercicio" name="exercicio" required>
+              <option value="">Selecione...</option>
+              <option>Flexões (push-ups)</option>
+              <option>Barras (pull-ups)</option>
+              <option>Paralelas / Dips</option>
+              <option>Prancha (segundos)</option>
+              <option>Abdominais (reps)</option>
+            </select>
+          </div>
+          <div>
+            <label for="reps">Repetições / Tempo (segundos)</label>
+            <input id="reps" name="reps" type="number" min="0" required>
+          </div>
+        </div>
+
+        <div style="margin-top:10px">
+          <label for="data">Data</label>
+          <input id="data" name="data" type="date" required>
+        </div>
+
+        <div style="margin-top:12px">
+          <button type="submit">Salvar registro</button>
+        </div>
+      </form>
+
+      <h3 style="margin-top:18px">Treinos Registrados</h3>
+      <table id="tabela">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Exercício</th>
+            <th>Reps/Tempo</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <canvas id="grafico" width="800" height="300" style="margin-top:18px"></canvas>
+
+      <p class="small" style="margin-top:8px">
+        Observação: o gráfico exibe a evolução temporal combinada de todos os treinos inseridos.
+      </p>
+    </section>
+
+    <section id="conclusao" class="card">
+      <h2>5. Conclusão</h2>
+      <p>O protótipo demonstra viabilidade técnica para suportar o monitoramento básico de desempenho em calistenia. Espera-se maior consciência sobre o progresso individual e facilidade para prescrição baseada em dados.</p>
+    </section>
+
+    <section id="referencias" class="card">
+      <h2>6. Referências (exemplos)</h2>
+      <ul>
+        <li>Bompa, T. & Haff, G. — *Periodization: Theory and Methodology of Training.*</li>
+        <li>Zatsiorsky, V. & Kraemer, W. — *Science and Practice of Strength Training.*</li>
+        <li>Reis, V. et al. — Estudos sobre adesão ao exercício e feedback.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>Projeto: Calistenia + Métrica — Versão acadêmica. Desenvolvido como atividade de extensão.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
