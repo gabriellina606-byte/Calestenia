@@ -1,9 +1,9 @@
    :root {
-  --bg: #000000;          /* Fundo preto */
-  --card: #1a0000;        /* Cartões com vermelho bem escuro */
+  --bg: #000000;         
+  --card: #1a0000;       
   --text: white;        
-  --muted:white;       /* Texto secundário (vermelho mais claro) */
-  --accent: #ff0000;      /* Acentos em vermelho vivo */
+  --muted:white;       
+  --accent: #ff0000;     
 }
 
 * {
@@ -153,3 +153,4 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
